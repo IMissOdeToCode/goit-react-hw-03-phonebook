@@ -7,13 +7,11 @@ import ContactsFilter from './ContsctsFilter';
 import ContactsForm from './ContactsForm';
 
 import contacts from './contacts';
-// import emptyContacts from './emptyContacts';
 
 import css from './PhoneBook.module.scss';
 
 class PhoneBook extends Component {
   state = {
-    // contacts: [...emptyContacts],
     contacts: [...contacts],
     filter: '',
   };
@@ -73,8 +71,6 @@ class PhoneBook extends Component {
   }
 
   componentDidMount() {
-    // console.log('PhoneBook componentDidMount');
-
     const rawContacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(rawContacts);
 
@@ -84,10 +80,7 @@ class PhoneBook extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // console.log('PhoneBook componentDidUpdate');
     if (this.state.contacts !== prevState.contacts) {
-      // console.log('something change');
-
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
